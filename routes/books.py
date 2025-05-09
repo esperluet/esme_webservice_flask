@@ -1,9 +1,11 @@
 from flask import Blueprint, request, jsonify
 from models import db, Book
 from datetime import datetime
+from flask_cors import CORS
 
 books_bp = Blueprint('books', __name__)
 
+CORS(books_bp, origins='*')
 # 🔹 Récupérer tous les livres
 @books_bp.route('/books', methods=['GET'])
 def get_books():
